@@ -11,11 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductInput {
 
-
     String name;
     String minQuantity;
     String price;
     String quantityAvailable;
-
 
 }
