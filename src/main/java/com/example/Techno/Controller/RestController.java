@@ -3,11 +3,14 @@ package com.example.Techno.Controller;
 import com.example.Techno.Entity.Product;
 import com.example.Techno.Entity.ProductInput;
 import com.example.Techno.Service.ProductService;
+import com.example.Techno.Service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import com.example.Techno.Input.QueryBodyInput;
+
 
 import java.util.List;
 
@@ -18,6 +21,9 @@ public class RestController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    QueryService queryService;
 
     @GetMapping
     public List<Product> product() {
@@ -36,7 +42,10 @@ public class RestController {
     }
 
     @PostMapping("/query")
-    public boolean addquery(@RequestBody )
+    public boolean addquery(@RequestBody QueryBodyInput queryBodyInput){
+        queryService.addquery(queryBodyInput);
+        return true;
+    }
 
 
 }
